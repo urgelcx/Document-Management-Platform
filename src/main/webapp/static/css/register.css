@@ -1,0 +1,31 @@
+.kuang{
+    border: 1px solid grey;
+    border-radius: 15px;
+    width: 600px;
+    height: 310px;
+    padding:10px;
+    left: 50%;
+    top: 50%;
+    margin-left: -320px;
+    margin-top: -200px;
+    position: absolute;
+    text-align: center;
+}
+.biaoqian1{
+    text-align: center;
+    width: 150px;
+    height: 35px;
+    background-color:#9EACD9;
+    border: 1px solid #9EACD9;
+    margin-left: 150px;
+    margin-top: 20px;
+}
+.biaoqian2{
+    text-align: center;
+    width: 150px;
+    height: 35px;
+    background-color:#9EACD9;
+    border: 1px solid #9EACD9;
+    margin-left: 40px;
+    margin-top: 20px;
+}

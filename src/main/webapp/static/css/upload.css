@@ -1,0 +1,48 @@
+.herder
+{
+    position: absolute;
+    left: 80%;
+    color: red;
+}
+.login{
+    position: absolute;
+    left: 975px;
+    top: 30px;
+    background:  #9EACD9;
+    /*border-radius:  5px;*/
+}
+.frame
+{
+    border: 1px solid grey;
+    border-radius: 15px;
+    width: 600px;
+    height: 310px;
+    padding:30px;
+    left: 50%;
+    top: 50%;
+    margin-left: -320px;
+    margin-top: -200px;
+    position: absolute;
+}
+.name
+{
+    position: relative;
+    left: 25%;
+    top: 20px;
+}
+.frame input
+{
+    position: relative;
+    left: 40%;
+}
+.frame select
+{
+    position: relative;
+    left: 40%;
+}
+.frame button
+{
+    position: relative;
+    top: 30px;;
+    left: 40%;
+}

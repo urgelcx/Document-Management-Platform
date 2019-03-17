@@ -1,0 +1,71 @@
+.tab
+{
+    position: absolute;
+    left: 200px;
+    top: 125px;
+}
+
+.upload{
+    position: absolute;
+    left: 1000px;
+    top: 80px;
+}
+.login{
+    position: absolute;
+    left: 1050px;
+    top: 15px;
+}
+.tb{
+    width: 900px;
+    height: 110px;
+    border-radius: 5px;
+    color: white;
+    text-align: center;
+}
+.tr1{
+    background: #9EACD9;
+}
+.tr2{
+    background:	#A9A9A9;
+}
+
+.d1 {
+    top: 20px;
+    left: 600px;
+    position: absolute;
+    width: 300px;
+    height: 30px;
+
+}
+.d1 input {
+    width: 100%;
+    height: 30px;
+    padding-left: 10px;
+    border: 2px solid #7BA7AB;
+    border-radius: 5px;
+    outline: none;
+    background: #F9F0DA;
+    color: #9E9C9C;
+}
+.d1 button {
+    position: relative;
+    top: -30px;
+    left:280px;
+    width: 35px;
+    height: 30px;
+    border: none;
+    background: #7BA7AB;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+}
+.d1 button:before {
+    content: "\f002";
+    font-family: FontAwesome;
+    font-size: 16px;
+    color: #F9F0DA;
+}
+.check{
+    position: absolute;
+    left: 150px;
+    top: 80px;
+}

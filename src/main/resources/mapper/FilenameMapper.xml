@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.urge.dao.FilenameMapper">
+  <resultMap id="BaseResultMap" type="com.urge.entity.Filename">
+    <constructor>
+      <idArg column="id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="teamname" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="filename" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="uploaduser" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="fileAddress" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="summary" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="datatime" javaType="java.lang.String" jdbcType="VARCHAR" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, teamname, filename, uploaduser, fileAddress, summary, datatime
+  </sql>
+  <select id="getAllFile" resultMap="BaseResultMap" >
+    SELECT * FROM filename ORDER BY id asc
+  </select>
+  <select id="getAllFile1" resultMap="BaseResultMap" >
+    SELECT * FROM filename ORDER BY filename ASC
+  </select>
+  <select id="getAllFile2" resultMap="BaseResultMap" >
+    SELECT * FROM filename ORDER BY teamname ASC
+  </select>
+  <select id="findUsersById" resultType="com.urge.entity.Filename">
+    select * from filename
+    where id=#{id}
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from filename
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from filename
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.urge.entity.Filename">
+    insert into filename (id, teamname, filename, 
+      uploaduser, fileAddress, summary, 
+      datatime)
+    values (#{id,jdbcType=INTEGER}, #{teamname,jdbcType=VARCHAR}, #{filename,jdbcType=VARCHAR}, 
+      #{uploaduser,jdbcType=VARCHAR}, #{fileaddress,jdbcType=VARCHAR}, #{summary,jdbcType=VARCHAR}, 
+      #{datatime,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.urge.entity.Filename">
+    insert into filename
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="teamname != null">
+        teamname,
+      </if>
+      <if test="filename != null">
+        filename,
+      </if>
+      <if test="uploaduser != null">
+        uploaduser,
+      </if>
+      <if test="fileaddress != null">
+        fileAddress,
+      </if>
+      <if test="summary != null">
+        summary,
+      </if>
+      <if test="datatime != null">
+        datatime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="teamname != null">
+        #{teamname,jdbcType=VARCHAR},
+      </if>
+      <if test="filename != null">
+        #{filename,jdbcType=VARCHAR},
+      </if>
+      <if test="uploaduser != null">
+        #{uploaduser,jdbcType=VARCHAR},
+      </if>
+      <if test="fileaddress != null">
+        #{fileaddress,jdbcType=VARCHAR},
+      </if>
+      <if test="summary != null">
+        #{summary,jdbcType=VARCHAR},
+      </if>
+      <if test="datatime != null">
+        #{datatime,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <insert id="doUpLoadFile" parameterType="map" useGeneratedKeys="true">
+    INSERT into filename
+    (teamname,filename,uploaduser,fileAddress,summary,datatime)
+    values (#{teamname},#{filename},#{uploaduser},#{fileAddress},#{summary},#{datatime})
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.urge.entity.Filename">
+    update filename
+    <set>
+      <if test="teamname != null">
+        teamname = #{teamname,jdbcType=VARCHAR},
+      </if>
+      <if test="filename != null">
+        filename = #{filename,jdbcType=VARCHAR},
+      </if>
+      <if test="uploaduser != null">
+        uploaduser = #{uploaduser,jdbcType=VARCHAR},
+      </if>
+      <if test="fileaddress != null">
+        fileAddress = #{fileaddress,jdbcType=VARCHAR},
+      </if>
+      <if test="summary != null">
+        summary = #{summary,jdbcType=VARCHAR},
+      </if>
+      <if test="datatime != null">
+        datatime = #{datatime,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.urge.entity.Filename">
+    update filename
+    set teamname = #{teamname,jdbcType=VARCHAR},
+      filename = #{filename,jdbcType=VARCHAR},
+      uploaduser = #{uploaduser,jdbcType=VARCHAR},
+      fileAddress = #{fileaddress,jdbcType=VARCHAR},
+      summary = #{summary,jdbcType=VARCHAR},
+      datatime = #{datatime,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+
+  <select id="searchFileName" parameterType="java.lang.String" resultType="com.urge.entity.Filename">
+  select * from filename where true
+  <if test="filename!=null">
+  AND filename like CONCAT('%',#{filename},'%')
+  </if>
+  </select>
+
+</mapper>

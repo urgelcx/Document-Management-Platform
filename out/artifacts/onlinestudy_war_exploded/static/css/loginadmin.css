@@ -1,0 +1,30 @@
+.denglu3{
+    position: absolute;
+    margin-top: -50px;
+    margin-left: 1px;
+}
+
+.password{
+    position: absolute;
+    margin-top: -70px;
+    margin-left: 1px;
+}
+body{
+    background: url("http://localhost:8080/1/static/img/img1.jpg") repeat;
+}
+
+.form{
+    background: rgba(255,255,255,0.2);
+    width:400px;
+    margin:120px auto;
+}
+/*阴影*/
+.fa{display: inline-block;
+    top: 27px;
+    left: 6px;
+    position: relative;
+    color: #ccc;}
+input[type="text"],input[type="password"]{padding-left:26px;}
+.checkbox{
+    padding-left:21px;
+}
